@@ -24,4 +24,7 @@ def getImage():
         'Authorization' : imgurClientId
     }
     req = requsts.get('https://api.imgur.com/3/gallery/user/time/0?showViral=false&perPage=1')
-    
+
+
+
+#EOF
