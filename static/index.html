@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="imgur">
+
+<head>
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script type='text/javascript' src='./app.js'></script>
+    <style>
+        body {
+            background-color: #141518;
+            color: #DDD;
+            border: 0px;
+            padding: 0px;
+            margin: 0px;
+            font-family: helvetica, arial, sans-serif;
+        }
+
+        #blurryBg {
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+            height: auto;
+            overflow: none;
+            -webkit-filter: blur(10px) opacity(10%);
+            -moz-webkit-filter: blur(10px) opacity(10%);
+        }
+
+        #bg {
+            position: absolute;
+            z-index: -2;
+            width: 100%;
+            height: 100%;
+
+
+        }
+
+        #newImage {
+            width: 100%;
+            height: auto;
+        }
+
+        #wrapper {
+            width: 80%;
+            height: auto;
+            margin: auto;
+            background-color: #222;
+            padding: 5px;
+        }
+
+        #title { 
+            width: 80%;
+            height: auto;
+            line-height: 50px;
+            background-color: #333;
+            display: inline-block;
+            padding-left: 1%;
+            padding-right: 1%;
+            font-weight: bolder;
+            font-size: 30px;
+            top: 0px;
+        }
+         #author {
+            width: 17%;
+            height: 100%;
+            line-height: 50px;
+            background-color: #222;
+            display: inline-block;
+            padding-left: 1%;
+            top: 0px;
+            vertical-align: top;
+         }
+
+
+    </style>
+
+
+</head>
+
+
+<body ng-controller='imgurController'>
+    <div id='bg' ng-style="{ 'background-image' : 'url({{newImage}})'}" ></div>
+    <div id='wrapper'>
+        <div id='title' ng-bind='imgTitle'></div><div id='author' ng-bind='imgAuthor'></div>
+        <div id='image'><img ng-src='{{ newImage }}' id='newImage'></div>
+        <div id='imgDesc' ng-bind='imgDesc'></div>
+        <div id='imgStats' ng-bind='imgStats'></div>
+        <div id='imgLink' ng-bind='imgLink'></div>
+    </div>
+</body>
+
+
+</html>
